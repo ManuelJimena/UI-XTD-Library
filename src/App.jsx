@@ -1,37 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
-import developers from './data/developers'
-import ButtonViewer from './components/Demo/Viewer'
-import ButtonMJG from './components/Button/Viewer'
-import SpinnerMJG from './components/Spinner/Viewer'
-import ToggleMJG from './components/Toggle/Viewer'
+import developer from './data/developer'
+import Button from './components/Button/Viewer'
+import Spinner from './components/Spinner/Viewer'
+import Toggle from './components/Toggle/Viewer'
 import { useResponsiveSidebar } from './hooks/useResponsiveSidebar'
-import { useSelection } from './hooks/useSelection'
 
 const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useResponsiveSidebar()
-  const {
-    selectedDeveloper,
-    setSelectedDeveloper,
-    selectedComponent,
-    setSelectedComponent
-  } = useSelection()
-
-  const components = selectedDeveloper.components.map((componentId) => {
-    switch (componentId) {
-      case 'Button_MJG':
-        return { id: componentId, name: 'Buttons', component: ButtonMJG }
-      case 'Spinner_MJG':
-        return { id: componentId, name: 'Spinners', component: SpinnerMJG }
-      case 'Toggle_MJG':
-        return { id: componentId, name: 'Toggles', component: ToggleMJG }
-      case 'ButtonViewer':
-        return { id: componentId, name: 'Buttons', component: ButtonViewer }
-      default:
-        return null
-    }
-  }).filter(component => component !== null)
+  const [selectedComponent, setSelectedComponent] = useState(null)
+  const components = [
+    { id: 'Button', name: 'Buttons', component: Button },
+    { id: 'Spinner', name: 'Spinners', component: Spinner },
+    { id: 'Toggle', name: 'Toggles', component: Toggle }
+  ]
 
   const handleSelectComponent = (componentId) => {
     const component = components.find(c => c.id === componentId)
@@ -42,18 +25,13 @@ const App = () => {
   return (
     <>
       <Header
-        developer={selectedDeveloper}
+        developer={developer}
         toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
         isSidebarOpen={isSidebarOpen}
       />
       <div style={{ display: 'flex', minHeight: '100vh', paddingTop: '50px' }}>
         <Sidebar
           isVisible={isSidebarOpen}
-          developers={developers}
-          selectedDeveloper={selectedDeveloper}
-          onSelectDeveloper={(developer) => {
-            setSelectedDeveloper(developer)
-          }}
           components={components}
           onSelectComponent={handleSelectComponent}
         />
