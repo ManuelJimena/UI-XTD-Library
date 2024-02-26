@@ -50,9 +50,9 @@ const SpinnerLabel = styled.div`
 const SpinnerViewer = () => (
   <SpinnersContainer>
     <SectionTitle>Circles</SectionTitle>
-    {['primary100', 'red100', 'general80'].map((color, index) => (
+    {['primary100', 'red100', 'general80', 'purple90'].map((color, index) => (
       <SpinnersGroup key={index}>
-        <GroupTitle>{color === 'primary100' ? 'Blue' : color === 'red100' ? 'Red' : 'Grey'}</GroupTitle>
+        <GroupTitle>{color === 'primary100' ? 'Blue' : color === 'red100' ? 'Red' : color === 'purple90' ? 'Purple' : 'Grey'}</GroupTitle>
         <SpinnersRow>
           <SpinnerLabel>
             <Spinner size="large" color={color} type="circle" />
@@ -70,9 +70,9 @@ const SpinnerViewer = () => (
       </SpinnersGroup>
     ))}
     <SectionTitle>Dots</SectionTitle>
-    {['primary100', 'red100', 'general80'].map((color, index) => (
+    {['primary100', 'red100', 'general80', 'purple90'].map((color, index) => (
       <SpinnersGroup key={index}>
-        <GroupTitle>{color === 'primary100' ? 'Blue' : color === 'red100' ? 'Red' : 'Grey'}</GroupTitle>
+        <GroupTitle>{color === 'primary100' ? 'Blue' : color === 'red100' ? 'Red' : color === 'purple90' ? 'Purple' : 'Grey'}</GroupTitle>
         <SpinnersRow>
           <SpinnerLabel>
             <Spinner size="large" color={color} type="dot" />
@@ -89,10 +89,10 @@ const SpinnerViewer = () => (
         </SpinnersRow>
       </SpinnersGroup>
     ))}
-   <SectionTitle>Bar Loader</SectionTitle>
-    {['primary100', 'red100', 'general80'].map((color) => (
+    <SectionTitle>Bar Loader</SectionTitle>
+    {['primary100', 'red100', 'general80', 'purple90'].map((color) => (
       <SpinnersGroup key={color}>
-        <GroupTitle>{color === 'primary100' ? 'Blue' : color === 'red100' ? 'Red' : 'Grey'}</GroupTitle>
+        <GroupTitle>{color === 'primary100' ? 'Blue' : color === 'red100' ? 'Red' : color === 'purple90' ? 'Purple' : 'Grey'}</GroupTitle>
         <SpinnersRow>
           <SpinnerLabel>
             <Spinner size="large" color={color} type="barLoader" />
