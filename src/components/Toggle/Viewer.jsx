@@ -5,10 +5,21 @@ import styled from 'styled-components'
 const ToggleViewerContainer = styled.div`
   padding: 5px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 40px;
   align-items: flex-start;
   margin-top: 5px;
+`
+
+const CategoryContainer = styled.div`
+border: 1px solid var(--general50);
+  border-radius: 8px;
+  padding: 20px;
+  padding-bottom: 30px;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
 `
 
 const MainTitle = styled.div`
@@ -18,7 +29,6 @@ const MainTitle = styled.div`
   text-align: left;
   color: var(--general100);
   width: 100%;
-  margin-bottom: 10px;
 `
 
 const ToggleGroup = styled.div`
@@ -85,11 +95,19 @@ const ToggleViewer = () => {
   return (
     <ToggleViewerContainer>
       <MainTitle>Standard Toggles</MainTitle>
-      {['blue', 'red', 'grey', 'purple'].map(color => renderToggleGroup('standard', color))}
+      <CategoryContainer>
+        {['blue', 'red', 'grey', 'purple'].map(color => renderToggleGroup('standard', color))}
+      </CategoryContainer>
+
       <MainTitle>Toggles with Icons</MainTitle>
-      {['blue', 'red', 'grey', 'purple'].map(color => renderToggleGroup('icon', color))}
+      <CategoryContainer>
+        {['blue', 'red', 'grey', 'purple'].map(color => renderToggleGroup('icon', color))}
+      </CategoryContainer>
+
       <MainTitle>Toggles with Text</MainTitle>
-      {['blue', 'red', 'grey', 'purple'].map(color => renderToggleGroup('text', color))}
+      <CategoryContainer>
+        {['blue', 'red', 'grey', 'purple'].map(color => renderToggleGroup('text', color))}
+      </CategoryContainer>
     </ToggleViewerContainer>
   )
 }
