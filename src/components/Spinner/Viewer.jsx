@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import Spinner from './Spinner'
-import CodeButton from '../CodeButton/CodeButton'
+import CodeButton from '../CodeButton_MJG/CodeButton'
 import styled from 'styled-components'
 
 const SpinnersContainer = styled.div`
@@ -76,11 +77,22 @@ const barLoaderCodeString = `
 <Spinner size="small" color="primary100" type="barLoader" />
 `
 
-const SpinnerViewer = () => (
-  <SpinnersContainer>
+const SpinnerViewer = () => {
+  const [showCircles, setShowCircles] = useState(true)
+  const [showDots, setShowDots] = useState(true)
+  const [showBarLoader, setShowBarLoader] = useState(true)
+
+  return (
+    <SpinnersContainer>
     <SectionTitle>Circles</SectionTitle>
-    <CodeButton codeString={circlesCodeString} language="html" wrapLongLines={true} />
-    <SpinnersWrapper>
+    <CodeButton
+      codeString={circlesCodeString}
+      language="html"
+      wrapLongLines={true}
+      onToggleShowCode={() => setShowCircles(!showCircles)}
+    />
+    {showCircles && (
+      <SpinnersWrapper>
       {['primary100', 'red100', 'general80', 'purple90'].map((color, index) => (
         <SpinnersGroup key={index}>
           <GroupTitle>{color === 'primary100' ? 'Blue' : color === 'red100' ? 'Red' : color === 'purple90' ? 'Purple' : 'Grey'}</GroupTitle>
@@ -101,9 +113,16 @@ const SpinnerViewer = () => (
         </SpinnersGroup>
       ))}
     </SpinnersWrapper>
-    <SectionTitle>Dots</SectionTitle>
-    <CodeButton codeString={dotsCodeString} language="html" wrapLongLines={true} />
-    <SpinnersWrapper>
+    )}
+     <SectionTitle>Dots</SectionTitle>
+      <CodeButton
+        codeString={dotsCodeString}
+        language="html"
+        wrapLongLines={true}
+        onToggleShowCode={() => setShowDots(!showDots)}
+      />
+      {showDots && (
+        <SpinnersWrapper>
       {['primary100', 'red100', 'general80', 'purple90'].map((color, index) => (
         <SpinnersGroup key={index}>
           <GroupTitle>{color === 'primary100' ? 'Blue' : color === 'red100' ? 'Red' : color === 'purple90' ? 'Purple' : 'Grey'}</GroupTitle>
@@ -124,9 +143,16 @@ const SpinnerViewer = () => (
         </SpinnersGroup>
       ))}
     </SpinnersWrapper>
+      )}
     <SectionTitle>Bar Loader</SectionTitle>
-    <CodeButton codeString={barLoaderCodeString} language="html" wrapLongLines={true} />
-    <SpinnersWrapper>
+      <CodeButton
+        codeString={barLoaderCodeString}
+        language="html"
+        wrapLongLines={true}
+        onToggleShowCode={() => setShowBarLoader(!showBarLoader)}
+      />
+      {showBarLoader && (
+        <SpinnersWrapper>
       {['primary100', 'red100', 'general80', 'purple90'].map((color) => (
         <SpinnersGroup key={color}>
           <GroupTitle>{color === 'primary100' ? 'Blue' : color === 'red100' ? 'Red' : color === 'purple90' ? 'Purple' : 'Grey'}</GroupTitle>
@@ -147,7 +173,9 @@ const SpinnerViewer = () => (
         </SpinnersGroup>
       ))}
     </SpinnersWrapper>
-  </SpinnersContainer>
-)
+      )}
+    </SpinnersContainer>
+  )
+}
 
 export default SpinnerViewer
