@@ -1,4 +1,5 @@
 import Spinner from './Spinner'
+import CodeButton from '../CodeButton/CodeButton'
 import styled from 'styled-components'
 
 const SpinnersContainer = styled.div`
@@ -21,7 +22,7 @@ const SectionTitle = styled.h2`
 const SpinnersWrapper = styled.div`
   border: 1px solid var(--general50);
   border-radius: 8px;
-  padding: 10px;
+  padding: 20px;
   padding-bottom: 30px;
   display: flex;
   flex-wrap: wrap;
@@ -57,9 +58,28 @@ const SpinnerLabel = styled.div`
   color: var(--general100);
 `
 
+const circlesCodeString = `
+<Spinner size="large" color="primary100" type="circle" />
+<Spinner size="medium" color="primary100" type="circle" />
+<Spinner size="small" color="primary100" type="circle" />
+`
+
+const dotsCodeString = `
+<Spinner size="large" color="primary100" type="dot" />
+<Spinner size="medium" color="primary100" type="dot" />
+<Spinner size="small" color="primary100" type="dot" />
+`
+
+const barLoaderCodeString = `
+<Spinner size="large" color="primary100" type="barLoader" />
+<Spinner size="medium" color="primary100" type="barLoader" />
+<Spinner size="small" color="primary100" type="barLoader" />
+`
+
 const SpinnerViewer = () => (
   <SpinnersContainer>
     <SectionTitle>Circles</SectionTitle>
+    <CodeButton codeString={circlesCodeString} language="html" wrapLongLines={true} />
     <SpinnersWrapper>
       {['primary100', 'red100', 'general80', 'purple90'].map((color, index) => (
         <SpinnersGroup key={index}>
@@ -82,50 +102,52 @@ const SpinnerViewer = () => (
       ))}
     </SpinnersWrapper>
     <SectionTitle>Dots</SectionTitle>
-<SpinnersWrapper>
-  {['primary100', 'red100', 'general80', 'purple90'].map((color, index) => (
-    <SpinnersGroup key={index}>
-      <GroupTitle>{color === 'primary100' ? 'Blue' : color === 'red100' ? 'Red' : color === 'purple90' ? 'Purple' : 'Grey'}</GroupTitle>
-      <SpinnersRow>
-        <SpinnerLabel>
-          <Spinner size="large" color={color} type="dot" />
-          <span>Large</span>
-        </SpinnerLabel>
-        <SpinnerLabel>
-          <Spinner size="medium" color={color} type="dot" />
-          <span>Medium</span>
-        </SpinnerLabel>
-        <SpinnerLabel>
-          <Spinner size="small" color={color} type="dot" />
-          <span>Small</span>
-        </SpinnerLabel>
-      </SpinnersRow>
-    </SpinnersGroup>
-  ))}
-</SpinnersWrapper>
-<SectionTitle>Bar Loader</SectionTitle>
-<SpinnersWrapper>
-  {['primary100', 'red100', 'general80', 'purple90'].map((color) => (
-    <SpinnersGroup key={color}>
-      <GroupTitle>{color === 'primary100' ? 'Blue' : color === 'red100' ? 'Red' : color === 'purple90' ? 'Purple' : 'Grey'}</GroupTitle>
-      <SpinnersRow>
-        <SpinnerLabel>
-          <Spinner size="large" color={color} type="barLoader" />
-          <span>Large</span>
-        </SpinnerLabel>
-        <SpinnerLabel>
-          <Spinner size="medium" color={color} type="barLoader" />
-          <span>Medium</span>
-        </SpinnerLabel>
-        <SpinnerLabel>
-          <Spinner size="small" color={color} type="barLoader" />
-          <span>Small</span>
-        </SpinnerLabel>
-      </SpinnersRow>
-    </SpinnersGroup>
-  ))}
-</SpinnersWrapper>
-</SpinnersContainer>
+    <CodeButton codeString={dotsCodeString} language="html" wrapLongLines={true} />
+    <SpinnersWrapper>
+      {['primary100', 'red100', 'general80', 'purple90'].map((color, index) => (
+        <SpinnersGroup key={index}>
+          <GroupTitle>{color === 'primary100' ? 'Blue' : color === 'red100' ? 'Red' : color === 'purple90' ? 'Purple' : 'Grey'}</GroupTitle>
+          <SpinnersRow>
+            <SpinnerLabel>
+              <Spinner size="large" color={color} type="dot" />
+              <span>Large</span>
+            </SpinnerLabel>
+            <SpinnerLabel>
+              <Spinner size="medium" color={color} type="dot" />
+              <span>Medium</span>
+            </SpinnerLabel>
+            <SpinnerLabel>
+              <Spinner size="small" color={color} type="dot" />
+              <span>Small</span>
+            </SpinnerLabel>
+          </SpinnersRow>
+        </SpinnersGroup>
+      ))}
+    </SpinnersWrapper>
+    <SectionTitle>Bar Loader</SectionTitle>
+    <CodeButton codeString={barLoaderCodeString} language="html" wrapLongLines={true} />
+    <SpinnersWrapper>
+      {['primary100', 'red100', 'general80', 'purple90'].map((color) => (
+        <SpinnersGroup key={color}>
+          <GroupTitle>{color === 'primary100' ? 'Blue' : color === 'red100' ? 'Red' : color === 'purple90' ? 'Purple' : 'Grey'}</GroupTitle>
+          <SpinnersRow>
+            <SpinnerLabel>
+              <Spinner size="large" color={color} type="barLoader" />
+              <span>Large</span>
+            </SpinnerLabel>
+            <SpinnerLabel>
+              <Spinner size="medium" color={color} type="barLoader" />
+              <span>Medium</span>
+            </SpinnerLabel>
+            <SpinnerLabel>
+              <Spinner size="small" color={color} type="barLoader" />
+              <span>Small</span>
+            </SpinnerLabel>
+          </SpinnersRow>
+        </SpinnersGroup>
+      ))}
+    </SpinnersWrapper>
+  </SpinnersContainer>
 )
 
 export default SpinnerViewer
