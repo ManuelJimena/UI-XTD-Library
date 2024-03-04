@@ -3,7 +3,7 @@ import StyledCodeButton from './StyledCodeButton'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
-const CodeButton = ({ element, codeString, language = 'html', customStyle, wrapLongLines = true, onToggleShowCode }) => {
+const CodeButton = ({ element, codeString, language = 'html', customStyle, wrapLongLines = true, onToggleShowCode, elementId }) => {
   const [showCode, setShowCode] = useState(false)
   const [isCopied, setIsCopied] = useState(false)
 
@@ -29,24 +29,24 @@ const CodeButton = ({ element, codeString, language = 'html', customStyle, wrapL
       <StyledCodeButton>
         <div className="switch">
           <input
-            name="radio"
+            name={`radio-${elementId}`}
             type="radio"
             value="preview"
-            id="preview"
+            id={`preview-${elementId}`}
             checked={!showCode}
             onChange={toggleShowCode}
           />
-          <label htmlFor="preview">Preview</label>
+          <label htmlFor={`preview-${elementId}`}>Preview</label>
 
           <input
-            name="radio"
+            name={`radio-${elementId}`}
             type="radio"
             value="html"
-            id="html"
+            id={`html-${elementId}`}
             checked={showCode}
             onChange={toggleShowCode}
           />
-          <label htmlFor="html" className="right">Html</label>
+          <label htmlFor={`html-${elementId}`} className="right">Html</label>
 
           <span className={showCode ? 'right' : ''}></span>
         </div>
@@ -73,7 +73,7 @@ const CodeButton = ({ element, codeString, language = 'html', customStyle, wrapL
             <SyntaxHighlighter
               language={language}
               style={atomOneDark}
-              customStyle={{ ...customStyle, borderRadius: '0 0 5px 5px', padding: '15px', margin: 0 }}
+              customStyle={{ ...customStyle, borderRadius: '0 0 5px 5px', padding: '15px', marginBottom: '40px' }}
               wrapLongLines={wrapLongLines}
             >
               {codeString}

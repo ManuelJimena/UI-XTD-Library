@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import Spinner from './Spinner'
-import CodeButton from '../CodeButton_MJG/CodeButton'
+import CodeButton from '../CodeButton/CodeButton'
 import styled from 'styled-components'
 
 const SpinnersContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 50px;
   padding: 5px;
   margin-top: 5px;
 `
@@ -18,6 +17,7 @@ const SectionTitle = styled.h2`
   font-weight: 700;
   line-height: 36px;
   text-align: left;
+  margin-bottom: 26px;
 `
 
 const SpinnersWrapper = styled.div`
@@ -28,6 +28,7 @@ const SpinnersWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
+  margin-bottom: 40px;
 `
 
 const SpinnersGroup = styled.div`
@@ -82,6 +83,10 @@ const SpinnerViewer = () => {
   const [showDots, setShowDots] = useState(true)
   const [showBarLoader, setShowBarLoader] = useState(true)
 
+  const toggleCircles = () => setShowCircles(prev => !prev)
+  const toggleDots = () => setShowDots(prev => !prev)
+  const toggleBarLoader = () => setShowBarLoader(prev => !prev)
+
   return (
     <SpinnersContainer>
     <SectionTitle>Circles</SectionTitle>
@@ -89,7 +94,8 @@ const SpinnerViewer = () => {
       codeString={circlesCodeString}
       language="html"
       wrapLongLines={true}
-      onToggleShowCode={() => setShowCircles(!showCircles)}
+      onToggleShowCode={toggleCircles}
+      elementId="circles"
     />
     {showCircles && (
       <SpinnersWrapper>
@@ -119,7 +125,8 @@ const SpinnerViewer = () => {
         codeString={dotsCodeString}
         language="html"
         wrapLongLines={true}
-        onToggleShowCode={() => setShowDots(!showDots)}
+        onToggleShowCode={toggleDots}
+        elementId="dots"
       />
       {showDots && (
         <SpinnersWrapper>
@@ -149,7 +156,8 @@ const SpinnerViewer = () => {
         codeString={barLoaderCodeString}
         language="html"
         wrapLongLines={true}
-        onToggleShowCode={() => setShowBarLoader(!showBarLoader)}
+        onToggleShowCode={toggleBarLoader}
+        elementId="barLoader"
       />
       {showBarLoader && (
         <SpinnersWrapper>
