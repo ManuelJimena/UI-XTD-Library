@@ -5,6 +5,7 @@ import developer from './data/developer'
 import Button from './components/Button/Viewer'
 import Spinner from './components/Spinner/Viewer'
 import Toggle from './components/Toggle/Viewer'
+import ProgressMarker from './components/ProgressMarker/Viewer'
 import { useResponsiveSidebar } from './hooks/useResponsiveSidebar'
 
 const App = () => {
@@ -13,7 +14,8 @@ const App = () => {
   const components = [
     { id: 'Button', name: 'Buttons', component: Button },
     { id: 'Spinner', name: 'Spinners', component: Spinner },
-    { id: 'Toggle', name: 'Toggles', component: Toggle }
+    { id: 'Toggle', name: 'Toggles', component: Toggle },
+    { id: 'ProgressMarker', name: '🚧 In progress 🚧', component: ProgressMarker }
   ]
 
   const handleSelectComponent = (componentId) => {
