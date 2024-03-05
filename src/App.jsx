@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import Header from './components/Header/Header'
-import Sidebar from './components/Sidebar/Sidebar'
-import developer from './data/developer'
-import Button from './components/Button/Viewer'
-import Spinner from './components/Spinner/Viewer'
-import Toggle from './components/Toggle/Viewer'
-import ProgressMarker from './components/ProgressMarker/Viewer'
-import { useResponsiveSidebar } from './hooks/useResponsiveSidebar'
+import Header from '@/components/Header/Header'
+import Sidebar from '@/components/Sidebar/Sidebar'
+import developer from '@/data/developer'
+import Button from '@/components/Button/Viewer'
+import Spinner from '@/components/Spinner/Viewer'
+import Toggle from '@/components/Toggle/Viewer'
+import ProgressMarker from '@/components/ProgressMarker/Viewer'
+import { useResponsiveSidebar } from '@/hooks/useResponsiveSidebar'
 
 const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useResponsiveSidebar()
