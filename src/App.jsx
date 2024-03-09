@@ -1,11 +1,11 @@
+import Button from '@components/Button/Viewer';
+import Header from '@components/Header/Header';
+import ProgressMarker from '@components/ProgressMarker/Viewer';
+import Sidebar from '@components/Sidebar/Sidebar';
+import Spinner from '@components/Spinner/Viewer';
+import Toggle from '@components/Toggle/Viewer';
 import React, { useState } from 'react';
 
-import Button from '@/components/Button/Viewer';
-import Header from '@/components/Header/Header';
-import ProgressMarker from '@/components/ProgressMarker/Viewer';
-import Sidebar from '@/components/Sidebar/Sidebar';
-import Spinner from '@/components/Spinner/Viewer';
-import Toggle from '@/components/Toggle/Viewer';
 import developer from '@/data/developer';
 import { useResponsiveSidebar } from '@/hooks/useResponsiveSidebar';
 

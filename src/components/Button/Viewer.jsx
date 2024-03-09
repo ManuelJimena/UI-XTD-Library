@@ -1,7 +1,7 @@
+import CodeButton from '@components/CodeButton/CodeButton';
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import CodeButton from '../CodeButton/CodeButton';
 import Button from './Button';
 
 const ButtonsContainer = styled.div`

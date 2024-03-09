@@ -1,7 +1,7 @@
+import CodeButton from '@components/CodeButton/CodeButton';
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import CodeButton from '../CodeButton/CodeButton';
 import Spinner from './Spinner';
 
 const SpinnersContainer = styled.div`
