@@ -1,11 +1,11 @@
-import Header from './Header'
+import Header from './Header';
 
 const HeaderViewer = () => {
   return (
     <div>
       <Header />
     </div>
-  )
-}
+  );
+};
 
-export default HeaderViewer
+export default HeaderViewer;

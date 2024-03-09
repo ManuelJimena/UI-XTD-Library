@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const SidebarContainer = styled.div.withConfig({
-  shouldForwardProp: prop => !['isVisible'].includes(prop)
+  shouldForwardProp: (prop) => !['isVisible'].includes(prop),
 })`
   display: flex;
   flex-direction: column;
@@ -16,19 +16,19 @@ export const SidebarContainer = styled.div.withConfig({
   left: 0;
   top: 0;
   z-index: 9;
- 
-  transform: ${props => props.isVisible ? 'translateX(0)' : 'translateX(-100%)'};
+
+  transform: ${(props) => (props.isVisible ? 'translateX(0)' : 'translateX(-100%)')};
   transition: transform 0.3s ease;
 
   @media (max-width: 650px) {
-    margin-top: ${props => props.isVisible ? '50px' : '50px'};
+    margin-top: ${(props) => (props.isVisible ? '50px' : '50px')};
   }
 
   @media (min-width: 650px) {
     position: relative;
     transform: translateX(0);
   }
-`
+`;
 
 export const DeveloperSelectContainer = styled.div`
   display: flex;
@@ -56,16 +56,16 @@ export const DeveloperSelectContainer = styled.div`
       border-color: var(--highlight);
     }
   }
-`
+`;
 
 export const SidebarTitle = styled.h2`
   margin-top: 25px;
-`
+`;
 
 export const ComponentList = styled.ul`
   list-style: none;
   width: 100%;
-`
+`;
 
 export const ComponentListItem = styled.li`
   padding: 8px;
@@ -74,4 +74,4 @@ export const ComponentListItem = styled.li`
     background-color: var(--general90);
     color: var(--general30);
   }
-`
+`;

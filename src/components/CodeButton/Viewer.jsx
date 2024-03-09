@@ -1,16 +1,15 @@
-import { useState } from 'react'
-import CodeButton from './CodeButton'
+import { useState } from 'react';
+
+import CodeButton from './CodeButton';
 
 const Viewer = () => {
-  const [selectedOption, setSelectedOption] = useState('optionone')
+  const [selectedOption, setSelectedOption] = useState('optionone');
 
   const handleChange = (option) => {
-    setSelectedOption(option)
-  }
+    setSelectedOption(option);
+  };
 
-  return (
-    <CodeButton selected={selectedOption} onChange={handleChange} />
-  )
-}
+  return <CodeButton selected={selectedOption} onChange={handleChange} />;
+};
 
-export default Viewer
+export default Viewer;

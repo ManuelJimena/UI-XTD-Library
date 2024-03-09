@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const StyledCodeButton = styled.div`
   .switch {
@@ -23,7 +23,7 @@ const StyledCodeButton = styled.div`
     font-size: 10px;
   }
 
-  input[type="radio"] {
+  input[type='radio'] {
     display: none;
 
     &:checked + label {
@@ -46,6 +46,6 @@ const StyledCodeButton = styled.div`
       left: calc(50% + 1px);
     }
   }
-`
+`;
 
-export default StyledCodeButton
+export default StyledCodeButton;

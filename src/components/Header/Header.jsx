@@ -1,12 +1,23 @@
-import { HeaderContainer, Logo, DeveloperPhoto, MenuIcon, Name, Id } from './StyledHeader'
-import logo from '../../assets/LogoXTD.webp'
+import logo from '../../assets/LogoXTD.webp';
+import {
+  DeveloperPhoto,
+  HeaderContainer,
+  Id,
+  Logo,
+  MenuIcon,
+  Name,
+} from './StyledHeader';
 
 const Header = ({ developer, toggleSidebar, isSidebarOpen }) => {
   return (
     <HeaderContainer>
       <MenuIcon onClick={toggleSidebar} isOpen={isSidebarOpen}>
-  {isSidebarOpen ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>}
-</MenuIcon>
+        {isSidebarOpen ? (
+          <i className="fas fa-times"></i>
+        ) : (
+          <i className="fas fa-bars"></i>
+        )}
+      </MenuIcon>
 
       <Logo src={logo} alt="Logo" />
       <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -15,7 +26,7 @@ const Header = ({ developer, toggleSidebar, isSidebarOpen }) => {
         <DeveloperPhoto src={developer.photo} alt="Developer" />
       </div>
     </HeaderContainer>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

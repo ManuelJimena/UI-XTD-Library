@@ -1,6 +1,17 @@
-import StyledButton from './StyledButton'
+import StyledButton from './StyledButton';
 
-const Button = ({ children, iconOnly, width, height, bgColor, hoverColor, hoverTextColor, textColor, borderColor, textSize }) => {
+const Button = ({
+  children,
+  iconOnly,
+  width,
+  height,
+  bgColor,
+  hoverColor,
+  hoverTextColor,
+  textColor,
+  borderColor,
+  textSize,
+}) => {
   return (
     <StyledButton
       $iconOnly={iconOnly}
@@ -15,7 +26,7 @@ const Button = ({ children, iconOnly, width, height, bgColor, hoverColor, hoverT
     >
       {children}
     </StyledButton>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

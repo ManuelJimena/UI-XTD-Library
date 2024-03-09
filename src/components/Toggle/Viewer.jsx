@@ -1,7 +1,8 @@
-import { useState } from 'react'
-import Toggle from './Toggle'
-import CodeButton from '../CodeButton/CodeButton'
-import styled from 'styled-components'
+import { useState } from 'react';
+import styled from 'styled-components';
+
+import CodeButton from '../CodeButton/CodeButton';
+import Toggle from './Toggle';
 
 const ToggleViewerContainer = styled.div`
   padding: 5px;
@@ -9,7 +10,7 @@ const ToggleViewerContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-top: 5px;
-`
+`;
 
 const CategoryContainer = styled.div`
   border: 1px solid var(--general50);
@@ -20,11 +21,11 @@ const CategoryContainer = styled.div`
   flex-wrap: wrap;
   gap: 40px;
   margin-bottom: 40px;
-`
+`;
 
 const FullWidthContainer = styled.div`
   width: 100%;
-`
+`;
 
 const MainTitle = styled.div`
   font-size: 24px;
@@ -34,13 +35,13 @@ const MainTitle = styled.div`
   color: var(--general100);
   width: 100%;
   margin-bottom: 26px;
-`
+`;
 
 const ToggleGroup = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-`
+`;
 
 const ToggleGroupTitle = styled.div`
   font-size: 14px;
@@ -49,12 +50,12 @@ const ToggleGroupTitle = styled.div`
   text-align: left;
   color: var(--general60);
   margin-bottom: 10px;
-`
+`;
 
 const TogglesRow = styled.div`
   display: flex;
   gap: 20px;
-`
+`;
 
 const ToggleLabel = styled.div`
   font-weight: 400;
@@ -64,7 +65,7 @@ const ToggleLabel = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-`
+`;
 
 const standardTogglesCodeString = `
 <Toggle size="large" color="blue" checked={checked.standard.blue.large} />
@@ -73,7 +74,7 @@ const standardTogglesCodeString = `
 <Toggle size="large" color="red" checked={checked.standard.red.large} />
 <Toggle size="medium" color="red" checked={checked.standard.red.medium} />
 <Toggle size="small" color="red" checked={checked.standard.red.small} />
-`
+`;
 
 const togglesWithIconsCodeString = `
 <Toggle size="large" color="blue" type="icon" checked={checked.icon.blue.large} />
@@ -82,7 +83,7 @@ const togglesWithIconsCodeString = `
 <Toggle size="large" color="red" type="icon" checked={checked.icon.red.large} />
 <Toggle size="medium" color="red" type="icon" checked={checked.icon.red.medium} />
 <Toggle size="small" color="red" type="icon" checked={checked.icon.red.small} />
-`
+`;
 
 const togglesWithTextCodeString = `
 <Toggle size="large" color="blue" type="text" checked={checked.text.blue.large} />
@@ -91,98 +92,127 @@ const togglesWithTextCodeString = `
 <Toggle size="large" color="red" type="text" checked={checked.text.red.large} />
 <Toggle size="medium" color="red" type="text" checked={checked.text.red.medium} />
 <Toggle size="small" color="red" type="text" checked={checked.text.red.small} />
-`
+`;
 
 const ToggleViewer = () => {
   const [checked, setChecked] = useState({
-    standard: { blue: { small: false, medium: false, large: false }, red: { small: false, medium: false, large: false }, grey: { small: false, medium: false, large: false }, purple: { small: false, medium: false, large: false } },
-    icon: { blue: { small: false, medium: false, large: false }, red: { small: false, medium: false, large: false }, grey: { small: false, medium: false, large: false }, purple: { small: false, medium: false, large: false } },
-    text: { blue: { small: false, medium: false, large: false }, red: { small: false, medium: false, large: false }, grey: { small: false, medium: false, large: false }, purple: { small: false, medium: false, large: false } }
-  })
+    standard: {
+      blue: { small: false, medium: false, large: false },
+      red: { small: false, medium: false, large: false },
+      grey: { small: false, medium: false, large: false },
+      purple: { small: false, medium: false, large: false },
+    },
+    icon: {
+      blue: { small: false, medium: false, large: false },
+      red: { small: false, medium: false, large: false },
+      grey: { small: false, medium: false, large: false },
+      purple: { small: false, medium: false, large: false },
+    },
+    text: {
+      blue: { small: false, medium: false, large: false },
+      red: { small: false, medium: false, large: false },
+      grey: { small: false, medium: false, large: false },
+      purple: { small: false, medium: false, large: false },
+    },
+  });
 
-  const [showStandardCode, setShowStandardCode] = useState(false)
-  const [showIconsCode, setShowIconsCode] = useState(false)
-  const [showTextCode, setShowTextCode] = useState(false)
+  const [showStandardCode, setShowStandardCode] = useState(false);
+  const [showIconsCode, setShowIconsCode] = useState(false);
+  const [showTextCode, setShowTextCode] = useState(false);
 
-  const toggleStandardCode = () => setShowStandardCode(prev => !prev)
-  const toggleIconsCode = () => setShowIconsCode(prev => !prev)
-  const toggleTextCode = () => setShowTextCode(prev => !prev)
+  const toggleStandardCode = () => setShowStandardCode((prev) => !prev);
+  const toggleIconsCode = () => setShowIconsCode((prev) => !prev);
+  const toggleTextCode = () => setShowTextCode((prev) => !prev);
 
   const handleChange = (type, color, size) => {
-    setChecked(prevState => ({
+    setChecked((prevState) => ({
       ...prevState,
       [type]: {
         ...prevState[type],
-        [color]: { ...prevState[type][color], [size]: !prevState[type][color][size] }
-      }
-    }))
-  }
+        [color]: { ...prevState[type][color], [size]: !prevState[type][color][size] },
+      },
+    }));
+  };
 
   const renderToggleGroup = (type, color) => (
     <ToggleGroup key={`${type}-${color}`}>
-      <ToggleGroupTitle>{color.charAt(0).toUpperCase() + color.slice(1)}</ToggleGroupTitle>
+      <ToggleGroupTitle>
+        {color.charAt(0).toUpperCase() + color.slice(1)}
+      </ToggleGroupTitle>
       <TogglesRow>
-        {['large', 'medium', 'small'].map(size => (
+        {['large', 'medium', 'small'].map((size) => (
           <ToggleLabel key={size}>
-            <Toggle size={size} color={color} checked={checked[type][color][size]} onChange={() => handleChange(type, color, size)} type={type} />
+            <Toggle
+              size={size}
+              color={color}
+              checked={checked[type][color][size]}
+              onChange={() => handleChange(type, color, size)}
+              type={type}
+            />
             <span>{size.charAt(0).toUpperCase() + size.slice(1)}</span>
           </ToggleLabel>
         ))}
       </TogglesRow>
     </ToggleGroup>
-  )
+  );
 
   return (
     <ToggleViewerContainer>
       <MainTitle>Standard Toggles</MainTitle>
       <FullWidthContainer>
-      <CodeButton
-        codeString={standardTogglesCodeString}
-        language="html"
-        wrapLongLines={true}
-        onToggleShowCode={toggleStandardCode}
-        elementId="standardToggles"
-      />
+        <CodeButton
+          codeString={standardTogglesCodeString}
+          language="html"
+          wrapLongLines={true}
+          onToggleShowCode={toggleStandardCode}
+          elementId="standardToggles"
+        />
       </FullWidthContainer>
       {!showStandardCode && (
         <CategoryContainer>
-          {['blue', 'red', 'grey', 'purple'].map(color => renderToggleGroup('standard', color))}
+          {['blue', 'red', 'grey', 'purple'].map((color) =>
+            renderToggleGroup('standard', color),
+          )}
         </CategoryContainer>
       )}
 
       <MainTitle>Toggles with Icons</MainTitle>
       <FullWidthContainer>
-      <CodeButton
-        codeString={togglesWithIconsCodeString}
-        language="html"
-        wrapLongLines={true}
-        onToggleShowCode={toggleIconsCode}
-        elementId="iconToggles"
-      />
+        <CodeButton
+          codeString={togglesWithIconsCodeString}
+          language="html"
+          wrapLongLines={true}
+          onToggleShowCode={toggleIconsCode}
+          elementId="iconToggles"
+        />
       </FullWidthContainer>
       {!showIconsCode && (
         <CategoryContainer>
-          {['blue', 'red', 'grey', 'purple'].map(color => renderToggleGroup('icon', color))}
+          {['blue', 'red', 'grey', 'purple'].map((color) =>
+            renderToggleGroup('icon', color),
+          )}
         </CategoryContainer>
       )}
 
       <MainTitle>Toggles with Text</MainTitle>
       <FullWidthContainer>
-      <CodeButton
-        codeString={togglesWithTextCodeString}
-        language="html"
-        wrapLongLines={true}
-        onToggleShowCode={toggleTextCode}
-        elementId="textToggles"
-      />
+        <CodeButton
+          codeString={togglesWithTextCodeString}
+          language="html"
+          wrapLongLines={true}
+          onToggleShowCode={toggleTextCode}
+          elementId="textToggles"
+        />
       </FullWidthContainer>
       {!showTextCode && (
         <CategoryContainer>
-          {['blue', 'red', 'grey', 'purple'].map(color => renderToggleGroup('text', color))}
+          {['blue', 'red', 'grey', 'purple'].map((color) =>
+            renderToggleGroup('text', color),
+          )}
         </CategoryContainer>
       )}
     </ToggleViewerContainer>
-  )
-}
+  );
+};
 
-export default ToggleViewer
+export default ToggleViewer;

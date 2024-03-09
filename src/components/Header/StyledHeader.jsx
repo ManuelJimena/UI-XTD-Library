@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components';
 
 const rotateRight = keyframes`
   from {
@@ -7,7 +7,7 @@ const rotateRight = keyframes`
   to {
     transform: rotate(360deg);
   }
-`
+`;
 
 const rotateLeft = keyframes`
   from {
@@ -16,7 +16,7 @@ const rotateLeft = keyframes`
   to {
     transform: rotate(-180deg);
   }
-`
+`;
 
 export const HeaderContainer = styled.header`
   position: fixed;
@@ -32,7 +32,7 @@ export const HeaderContainer = styled.header`
   color: var(--general150);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 10;
-`
+`;
 
 export const Logo = styled.img`
   height: 50px;
@@ -42,17 +42,17 @@ export const Logo = styled.img`
     left: 50%;
     transform: translateX(-50%);
   }
-`
+`;
 
 export const DeveloperPhoto = styled.img`
   height: 50px;
   width: 50px;
   border-radius: 50%;
   margin-left: 10px;
-`
+`;
 
 export const MenuIcon = styled.span.withConfig({
-  shouldForwardProp: (prop) => prop !== 'isOpen'
+  shouldForwardProp: (prop) => prop !== 'isOpen',
 })`
   display: none;
   @media (max-width: 650px) {
@@ -64,17 +64,17 @@ export const MenuIcon = styled.span.withConfig({
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-`
+`;
 
 export const Name = styled.span`
   @media (max-width: 650px) {
     display: none;
   }
-`
+`;
 
 export const Id = styled.span`
   display: none;
   @media (max-width: 650px) {
     display: inline;
   }
-`
+`;

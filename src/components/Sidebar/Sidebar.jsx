@@ -1,18 +1,23 @@
-import { SidebarContainer, SidebarTitle, ComponentList, ComponentListItem } from './StyledSidebar'
+import {
+  ComponentList,
+  ComponentListItem,
+  SidebarContainer,
+  SidebarTitle,
+} from './StyledSidebar';
 
-const Sidebar = ({ onSelectComponent, selectedDeveloper, onSelectDeveloper, components, isVisible }) => {
+const Sidebar = ({ onSelectComponent, components, isVisible }) => {
   const getIconClass = (name) => {
     switch (name) {
       case 'Buttons':
-        return 'fa-square'
+        return 'fa-square';
       case 'Spinners':
-        return 'fa-spinner'
+        return 'fa-spinner';
       case 'Toggles':
-        return 'fa-toggle-on'
+        return 'fa-toggle-on';
       default:
-        return 'fa-puzzle-piece'
+        return 'fa-puzzle-piece';
     }
-  }
+  };
 
   return (
     <SidebarContainer isVisible={isVisible}>
@@ -25,7 +30,7 @@ const Sidebar = ({ onSelectComponent, selectedDeveloper, onSelectDeveloper, comp
         ))}
       </ComponentList>
     </SidebarContainer>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

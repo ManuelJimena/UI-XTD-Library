@@ -1,33 +1,51 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const sizes = {
-  small: { width: '26.3px', height: '20px', circleSize: '12px', textSize: '4px', iconSize: '6px' },
-  medium: { width: '44px', height: '24px', circleSize: '16px', textSize: '9px', iconSize: '17px' },
-  large: { width: '48px', height: '28px', circleSize: '20px', textSize: '10px', iconSize: '19px' }
-}
+  small: {
+    width: '26.3px',
+    height: '20px',
+    circleSize: '12px',
+    textSize: '4px',
+    iconSize: '6px',
+  },
+  medium: {
+    width: '44px',
+    height: '24px',
+    circleSize: '16px',
+    textSize: '9px',
+    iconSize: '17px',
+  },
+  large: {
+    width: '48px',
+    height: '28px',
+    circleSize: '20px',
+    textSize: '10px',
+    iconSize: '19px',
+  },
+};
 
 const colorMap = {
   blue: {
     base: 'var(--primary40)',
     hover: 'var(--primary60)',
-    active: 'var(--primary100)'
+    active: 'var(--primary100)',
   },
   red: {
     base: 'var(--red40)',
     hover: 'var(--red60)',
-    active: 'var(--red100)'
+    active: 'var(--red100)',
   },
   grey: {
     base: 'var(--general40)',
     hover: 'var(--general60)',
-    active: 'var(--general90)'
+    active: 'var(--general90)',
   },
   purple: {
     base: 'var(--purple40)',
     hover: 'var(--purple60)',
-    active: 'var(--purple90)'
-  }
-}
+    active: 'var(--purple90)',
+  },
+};
 
 const StyledToggle = styled.div`
   position: relative;
@@ -58,16 +76,17 @@ const StyledToggle = styled.div`
     border-radius: ${({ size }) => sizes[size].height};
     display: flex;
     align-items: center;
-    justify-content: ${({ checked }) => checked ? 'flex-start' : 'flex-end'};
+    justify-content: ${({ checked }) => (checked ? 'flex-start' : 'flex-end')};
     color: white;
 
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       height: ${({ size }) => sizes[size].circleSize};
       width: ${({ size }) => sizes[size].circleSize};
       left: 4px;
-      bottom: ${({ size }) => `calc((${sizes[size].height} - ${sizes[size].circleSize}) / 2)`};
+      bottom: ${({ size }) =>
+        `calc((${sizes[size].height} - ${sizes[size].circleSize}) / 2)`};
       background-color: white;
       transition: 0.4s;
       border-radius: 50%;
@@ -83,8 +102,10 @@ const StyledToggle = styled.div`
   }
 
   input:checked + label:before {
-    transform: translateX(${({ size }) => `calc(${sizes[size].width} - ${sizes[size].circleSize} - 8px)`});
+    transform: translateX(
+      ${({ size }) => `calc(${sizes[size].width} - ${sizes[size].circleSize} - 8px)`}
+    );
   }
-`
+`;
 
-export default StyledToggle
+export default StyledToggle;
